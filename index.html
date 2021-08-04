@@ -1,44 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Tip calculator app</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Tip calculator app</title>
 
-  Bill
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    
+    <main>
+      <img class='logo' src="images/logo.svg">
+      <div class="container">
+        <div class='column calculation'>
+            
+            <div class="field-container">
+                <label class="field-label" for="total_amount">Bill</label>
+                <input class="field-input" id="total_amount" type="text">
+            </div>
+            
+            <div class="field-container">
+                <label class="field-label">Select Tip %</label>
+                <div class="tips-options">
+                  <button class="tip-option tip-button">5%</button>
+                  <button class="tip-option tip-button">10%</button>
+                  <button class="tip-option tip-button">15%</button>
+                  <button class="tip-option tip-button">25%</button>
+                  <button class="tip-option tip-button">50%</button>
+                  <input class="tip-option field-input" placeholder="Custom">
+                </div>
+            </div>
+            
+            <div class="field-container">
+                <label class="field-label" for="number_of_people">Number of People</label>
+                <input class="field-input" id="number_of_people" type="text">
+            </div>
 
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
+        </div>
+        <div class="column result">
 
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        </div>
+      </div>
+    </main>
+    
+  </body>
 </html>
