@@ -175,7 +175,7 @@ function App() {
                       
                       <input className="field-input" 
                         id="total_amount" 
-                        type="text" 
+                        type="text"  
                         placeholder="0" 
                         value={bill} 
                         onChange={e => handleBillInput(e)} />
