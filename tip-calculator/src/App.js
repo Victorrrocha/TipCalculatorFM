@@ -1,6 +1,8 @@
 import './styles.css'
 import Logo from './components/Logo';
 import { useState } from 'react';
+import dolar from './images/icon-dollar.svg'
+import person from './images/icon-person.svg'
 
 function App() {
 
@@ -18,6 +20,8 @@ function App() {
   const [tipAmount, setTipAmount] = useState("$0.00")
   const [totalAmount, setTotalAmount] = useState("$0.00")
 
+  const [resetBtn, setResetBtn] = useState(false)
+
   const handleBillInput = (e) => {
     let verifyLetter = /[a-zA-Z]/
     let price = e.target.value
@@ -33,7 +37,7 @@ function App() {
     //console.log(e.target.value)
     let value = e.target.value
 
-    if(value == 5){
+    if(value === "5"){
       setTipPercentage(value)
       setCustomTip("")
       CalculateTip(bill, value, numberOfPeople)
@@ -44,7 +48,7 @@ function App() {
       set_button_selected_25(false)
       set_button_selected_50(false)
     }
-    else if(value == 10){
+    else if(value === "10"){
       setTipPercentage(value)
       setCustomTip("")
       CalculateTip(bill, value, numberOfPeople)
@@ -55,7 +59,7 @@ function App() {
       set_button_selected_25(false)
       set_button_selected_50(false)
     }
-    else if(value == 15){
+    else if(value === "15"){
       setTipPercentage(value)
       setCustomTip("")
       CalculateTip(bill, value, numberOfPeople)
@@ -66,7 +70,7 @@ function App() {
       set_button_selected_25(false)
       set_button_selected_50(false)
     }
-    else if(value == 25){
+    else if(value === "25"){
       setTipPercentage(value)
       setCustomTip("")
       CalculateTip(bill, value, numberOfPeople)
@@ -77,7 +81,7 @@ function App() {
       set_button_selected_25(true)
       set_button_selected_50(false)
     }
-    else if(value == 50){
+    else if(value === "50"){
       setTipPercentage(value)
       setCustomTip("")
       CalculateTip(bill, value, numberOfPeople)
@@ -120,9 +124,9 @@ function App() {
   }
 
   const CalculateTip  = (billNum, tipNum, peopleNum) => {
-    console.log("calculating tip...")
-
-    console.log(`Bill: ${billNum}, Tip: ${tipNum}, Nº People ${peopleNum}`)
+    //console.log("calculating tip...")
+    setResetBtn(true)
+    //console.log(`Bill: ${billNum}, Tip: ${tipNum}, Nº People ${peopleNum}`)
     if(billNum && tipNum && peopleNum){
       //console.log(`Bill: ${bill}, Tip: ${tipPercentage}, Nº People ${numberOfPeople}`)
       let Localbill = parseFloat(billNum)
@@ -141,9 +145,24 @@ function App() {
     }
   }
 
+  const handleReset = () => {
+    setBill("")
+    setTipPercentage("")
+    setNumberOfPeople("")
+    set_button_selected_5(false)
+    set_button_selected_10(false)
+    set_button_selected_15(false)
+    set_button_selected_25(false)
+    set_button_selected_50(false)
+    setCustomTip("")
+    setTipAmount("$0.00")
+    setTotalAmount("$0.00")
+    setResetBtn(false)
+  }
+
   return (
     <div className="App">
-        <div className = 'main'>
+        <main className = 'main'>
           
           <Logo /> 
           
@@ -161,7 +180,7 @@ function App() {
                         value={bill} 
                         onChange={e => handleBillInput(e)} />
 
-                      <img className="input_logo" src="./images/icon-dollar.svg" alt="" />
+                      <img className="input_logo" src={dolar} alt="" />
 
                     </div>
                 </div>
@@ -207,7 +226,7 @@ function App() {
                         onChange = {(e) => handleNumberOfPeople(e)}
                         type="text" 
                         placeholder="0"/>
-                      <img className="input_logo" src="./images/icon-person.svg" alt="" />
+                      <img className="input_logo" src={person} alt="" />
                     </div>
                     
                 </div>
@@ -215,7 +234,7 @@ function App() {
             </div>
             <div className="flex-col column result">
                 <div>
-                  <div className="flex-row space-between">
+                  <div className="flex-row space-between result-div">
                     <div className="flex-col result-field">
                       <p className="result-title">Tip Amount</p>
                       <p className="result-subtitle">/ person</p>
@@ -223,7 +242,7 @@ function App() {
                     <p className="result-value">{tipAmount}</p>
                   </div>
 
-                  <div className="flex-row space-between">
+                  <div className="flex-row space-between result-div">
                     <div className="flex-col result-field">
                       <p className="result-title">Total</p>
                       <p className="result-subtitle">/ person</p>
@@ -233,12 +252,13 @@ function App() {
                 </div>
 
               
-                <button className="reset-btn not-interactable" >RESET</button>
+                <button className = {resetBtn ? "reset-btn interactable" : "reset-btn not-interactable"}
+                  onClick = {() => handleReset() } >RESET</button>
           
             
             </div>
           </div>
-        </div>
+        </main>
     </div>
   );
 }

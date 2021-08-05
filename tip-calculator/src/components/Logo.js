@@ -4,7 +4,7 @@ import logo  from '../images/logo.svg'
 
 function Logo() {
 
-    return <img className='logo' src={logo}/>
+    return <img className='logo' alt="Splitter App" src={logo}/>
 
 }
 

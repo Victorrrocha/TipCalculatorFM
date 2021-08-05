@@ -45,7 +45,8 @@
 }
 
 .logo{
-    margin-bottom: 80px;
+    margin-bottom: 40px;
+    padding-top: 40px ;
 }
 
 .container {
@@ -184,4 +185,26 @@
 .not-interactable{
     background-color: #0D686D;
     color: #045C63
+}
+
+.result-div{
+    margin-bottom: 40px;
+}
+
+@media ( max-width: 375px) {
+    .container{
+        width: 100vw;
+        height: fit-content;
+        flex-direction: column;
+        border-radius: 25px 25px 0 0;
+
+    }
+    .column{
+        width: 90vw;
+        height: fit-content;
+        margin-bottom: 30px;
+    }
+    .field-container{
+        margin-top: 20px;
+    }
 }
