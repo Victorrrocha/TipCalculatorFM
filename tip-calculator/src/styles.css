@@ -51,9 +51,11 @@
 
 .container {
     background-color: rgb(255, 255, 255);
-    width: 920px;
-    height: 480px;
+    width: 90%;
+    max-width: 920px;
+    height: auto;
     border-radius: 22px;
+    padding: 1.7em;
 
     display: flex;
     align-items: center;
@@ -61,7 +63,7 @@
 }
 
 .column {
-    width: 412px;
+    width: 50%;
     height: 416px;
     border-radius: 15px;
 }
@@ -191,7 +193,11 @@
     margin-bottom: 40px;
 }
 
-@media ( max-width: 375px) {
+@media ( max-width: 700px) {
+    .App{
+        height: fit-content;
+    }
+
     .container{
         width: 100vw;
         height: fit-content;
@@ -207,4 +213,10 @@
     .field-container{
         margin-top: 20px;
     }
+
+    .logo{
+        /* border: 2px dotted purple; */
+        padding: 0;
+        margin-top: 30px;
+    }    
 }
