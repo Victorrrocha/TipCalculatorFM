@@ -212,7 +212,9 @@ function App() {
                       <input className="tip-option field-input"
                         value={customTip} 
                         onChange={(e) => handleCustomTipButton(e)}
-                        placeholder="Custom"/>
+                        placeholder="Custom"
+                        type="number"
+                        />
 
                     </div>
                 </div>
